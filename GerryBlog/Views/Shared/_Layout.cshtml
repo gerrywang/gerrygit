@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <title>@ViewBag.Title - Gerry's Blog</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            @*<div class="navbar-header">
+                @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>*@
+                @*@Html.ActionLink("Singleton Blog", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            @*</div>*@
+            <div style="padding-top:12px; text-shadow: 2px 2px 0px #222222, 3px 3px 1px rgba(222, 216, 216, 0.39);">
+                <a href="/" style="color:#428bca; font-size:x-large; text-decoration:none">Gerry's Blog </a>
+                @*<span style="color:white; font-size:x-large;">by <a href="http://gerry.wang" style="text-decoration:none">GW</a></span>*@
+                <div style="float:right">
+                    <i class="fa fa-comment" style="color:#428bca; font-size:xx-large"></i>
+                </div>
+            </div>
+            @*<div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            </ul>
+                            @Html.Partial("_LoginPartial")
+                </div>*@
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Gerry's Blog</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

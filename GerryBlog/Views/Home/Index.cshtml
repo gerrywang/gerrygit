@@ -1,0 +1,54 @@
+﻿@model List<GerryBlog.Models.Post>
+<div style="padding:20px">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <form method="post" action="/home/index">
+                    <textarea name="body" placeholder="请填写档案..." class="form-control" rows="5" style="max-width:100%; width:100%; border-radius:10px"></textarea>
+                    <input type="text" name="action" value="addPost" style="display:none" />
+                    <input type="submit" class="btn btn-success btn-sm" value="新增档案" />
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <br /><br />
+    @foreach (var Post in Model)
+    {
+        <div class="container">
+            <hr />
+            <div class="row clearfix">
+                <div class="col-sm-1">
+                    <form method="post" action="/home/index">
+                        &nbsp;&nbsp;&nbsp;
+                        <input type="text" name="postid" value="@Post.Id" style="display:none" />
+                        <input type="text" name="action" value="deletePost" style="display:none" />
+                        <button type="submit" value="Delete Post" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                    </form>
+                </div>
+                <div class="col-sm-11" style="font-family: 'Open Sans', sans-serif;">
+                    @Post.Body
+                </div>
+            </div>
+            <br />
+            <div class="col-md-12">
+                <form method="post" action="/home/index">
+                    <input type="text" name="action" value="addComment" style="display:none">
+                    <textarea name="comment" placeholder="请填写评论..." style="max-width:100%; width:100%; border-radius:10px" rows="2" class="form-control"></textarea>
+                    <input type="text" name="postid" value="@Post.Id" style="display:none">
+                    <input type="submit" class="btn btn-primary btn-sm" value="提交" />
+                </form>
+            </div>
+        </div>
+        foreach (var Comentarios in Post.Comments)
+        {
+            <text>&nbsp;&nbsp;&nbsp;<i class="fa fa-comment" style="color:#428bca"></i></text>
+            <text>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+            <i style="font-family: 'Open Sans', sans-serif;">
+                @Comentarios
+            </i>
+            <br />
+        }
+        <br />
+    }
+</div>
